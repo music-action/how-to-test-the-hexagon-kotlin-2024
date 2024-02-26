@@ -1,9 +1,10 @@
-# seed-TDD-Kotlin-2023
+# origin: seed-TDD-Kotlin-2023
 a seed to strat a TDD project in Kotlin with latest version of language + Kotest + Mockk
+updated for kotlin_version = '1.9.22' +
 
 # branches
 
 in the branches, you can see many exercisms that we started to code based on that seed.
 
-First we started with the [Quatro Game](https://github.com/guillaumeagile/seed-TDD-Kotlin-2023/tree/Quatro_game#readme) 
-(en français).
+for now:
+double-entry accounting
