@@ -1,4 +1,4 @@
-package draft
+package core
 
 sealed class Movement(amount: Int) {
     data class Credit(val amount: Int) : Movement(1)

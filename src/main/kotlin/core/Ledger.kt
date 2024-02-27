@@ -1,4 +1,4 @@
-package draft
+package core
 
 class Ledger {
     fun RegisterTransaction(transaction: Transaction): Boolean {
