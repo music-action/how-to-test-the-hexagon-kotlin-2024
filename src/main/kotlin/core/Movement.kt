@@ -1,8 +1,19 @@
 package core
 
 sealed class Movement(amount: Int) {
-    data class Credit(val amount: Int) : Movement(1)
+    abstract fun value(): Int
 
-    data class Debit(val amount: Int) : Movement(1)
+
+    data class Credit(val amount: Int) : Movement(1) {
+        override fun value(): Int {
+            return amount
+        }
+    }
+
+    data class Debit(val amount: Int) : Movement(1) {
+        override fun value(): Int {
+            return  -amount
+        }
+    }
 
 }
