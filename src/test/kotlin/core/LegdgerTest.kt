@@ -9,10 +9,11 @@ class LedgerTest : FunSpec({
         val sut = Ledger()
         val entries = listOf<Entry>()
 
-        val actual: Boolean =
+        val actual: RegisterResult =
             sut.RegisterTransaction(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
 
-        actual shouldBe false
+
+        actual shouldBe RegisterResult.TransactionRejected
     }
 
     test("transaction with two balanced entries") {
@@ -26,7 +27,7 @@ class LedgerTest : FunSpec({
         val actual =
             sut.RegisterTransaction(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
 
-        actual shouldBe true
+        actual shouldBe RegisterResult.TransactionAccepted
     }
 
 })

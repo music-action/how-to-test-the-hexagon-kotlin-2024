@@ -1,10 +1,11 @@
 package core
 
 class Ledger {
-    fun RegisterTransaction(transaction: Transaction): Boolean {
+    fun RegisterTransaction(transaction: Transaction): RegisterResult {
 
-        return  transaction.entries.isNotEmpty()
-
+        if  (transaction.entries.isEmpty())
+            return RegisterResult.TransactionRejected
+        return RegisterResult.TransactionAccepted
     }
 
 
