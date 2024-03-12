@@ -1,5 +1,5 @@
 package core
 
-class Transaction(reference: Int, entries: List<Entry>, date: String) {
+class Transaction(reference: Int, val entries: List<Entry>, date: String) {
 
 }
