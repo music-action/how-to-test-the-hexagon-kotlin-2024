@@ -5,8 +5,10 @@ class Ledger {
 
         if  (transaction.entries.count() <2 )
             return RegisterResult.TransactionRejected
-        return RegisterResult.TransactionAccepted
-    }
+        var balance = transaction.balance()
 
+        if (balance ==0) return  RegisterResult.TransactionAccepted
+        return  RegisterResult.TransactionRejected
+    }
 
 }
