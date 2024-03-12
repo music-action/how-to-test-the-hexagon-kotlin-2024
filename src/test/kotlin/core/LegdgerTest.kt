@@ -57,5 +57,18 @@ class LedgerTest : FunSpec({
         actual shouldBe RegisterResult.TransactionRejected
     }
 
+    test("transaction with two zero entries") {
+        val sut = Ledger()
+        val entries =
+            listOf(
+                Entry(accountNumber = "1234567890", movement = Movement.Credit(0)),
+                Entry(accountNumber = "1234567890", movement = Movement.Debit(0))
+            )
+
+        val actual =
+            sut.RegisterTransaction(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
+
+        actual shouldBe RegisterResult.TransactionRejected
+    }
 
 })
