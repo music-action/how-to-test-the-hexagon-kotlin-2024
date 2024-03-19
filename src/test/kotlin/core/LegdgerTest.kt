@@ -1,5 +1,7 @@
 package core
 
+import arrow.core.None
+import arrow.core.Some
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
@@ -57,18 +59,18 @@ class LedgerTest : FunSpec({
         actual shouldBe RegisterResult.TransactionRejected
     }
 
-    test("transaction with two zero entries") {
-        val sut = Ledger()
-        val entries =
-            listOf(
-                Entry(accountNumber = "1234567890", movement = Movement.Credit(0)),
-                Entry(accountNumber = "1234567890", movement = Movement.Debit(0))
-            )
+    test("movement test, can't create movement with zero amount") {
 
-        val actual =
-            sut.RegisterTransaction(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
+        val actual = Movement.debit(0)
 
-        actual shouldBe RegisterResult.TransactionRejected
+        actual shouldBe None
+    }
+
+    test("actual debit with positive amount") {
+
+        val actual = Movement.debit(45)
+
+        actual shouldBe Some(Movement.Debit(45))
     }
 
 })
