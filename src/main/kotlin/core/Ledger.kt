@@ -3,12 +3,12 @@ package core
 class Ledger {
     fun RegisterTransaction(transaction: Transaction): RegisterResult {
 
-        if  (transaction.entries.count() <2 )
+        if (transaction.entries.count() < 2)
             return RegisterResult.TransactionRejected
-        var balance = transaction.balance()
+        val balance = transaction.balance()
 
-        if (balance ==0) return  RegisterResult.TransactionAccepted
-        return  RegisterResult.TransactionRejected
+        if (balance == 0) return RegisterResult.TransactionAccepted
+        return RegisterResult.TransactionRejected
     }
 
 }
