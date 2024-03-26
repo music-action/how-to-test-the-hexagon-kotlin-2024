@@ -4,8 +4,6 @@ import arrow.core.None
 import arrow.core.Some
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import io.kotest.datatest.withData
-import io.kotest.data.row
 
 class LedgerTest : FunSpec({
 
@@ -103,8 +101,11 @@ class LedgerTest : FunSpec({
         actual shouldBe None
     }
 
-    /* TODO: 2nd iteration with property base testing */
     /* TODO: implement two adapters for the present hexagon, at least one driven and one driver */
+    /* WIP: Input */
+
+    /* TODO: 2nd iteration with property base testing */
+
 
     /* TODO: walking skeleton */
     /* TODO: how to timestamp transaction and test it? Fake clock, Fake calendar */

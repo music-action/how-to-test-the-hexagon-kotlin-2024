@@ -32,3 +32,6 @@ An Entry which contains an Account and some amount (more on this later) with a D
 A Transaction has a date, a String label and a list of Entry which must be Balanced,
 A BookOfAccounts is a list of Transactions such that the fundamental equation holds at all time.
 
+## resources 
+
+https://app.excalidraw.com/l/A71COCUHrgv/4x4KHeQgjUP
