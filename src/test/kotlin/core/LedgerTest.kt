@@ -103,4 +103,11 @@ class LedgerTest : FunSpec({
         actual shouldBe None
     }
 
+    /* TODO: 2nd iteration with property base testing */
+    /* TODO: implement two adapters for the present hexagon, at least one driven and one driver */
+
+    /* TODO: walking skeleton */
+    /* TODO: how to timestamp transaction and test it? Fake clock, Fake calendar */
+    /* https://verraes.net/2022/03/multi-temporal-events/ */
+
 })
