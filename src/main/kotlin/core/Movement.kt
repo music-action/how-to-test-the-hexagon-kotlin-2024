@@ -22,7 +22,7 @@ sealed class Movement(amount: Int) {
 
     companion object {
         fun debit(value: Int): Option<Debit> {
-            if (value == 0) {
+            if (value <= 0) {
                 return None
             }
             return Some(Debit(value))

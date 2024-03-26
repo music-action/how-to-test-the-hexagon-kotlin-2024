@@ -73,4 +73,11 @@ class LedgerTest : FunSpec({
         actual shouldBe Some(Movement.Debit(45))
     }
 
+    test("can not create a debit with negative amount") {
+
+        val actual = Movement.debit(-27)
+
+        actual shouldBe None
+    }
+
 })
