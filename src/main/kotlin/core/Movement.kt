@@ -16,7 +16,7 @@ sealed class Movement(amount: Int) {
 
     data class Debit(val amount: Int) : Movement(1) {
         override fun value(): Int {
-            return  -amount
+            return -amount
         }
     }
 
@@ -26,6 +26,13 @@ sealed class Movement(amount: Int) {
                 return None
             }
             return Some(Debit(value))
+        }
+
+        fun credit(value: Int): Option<Credit> {
+            if (value <= 0) {
+                return None
+            }
+            return Some(Credit(value))
         }
     }
 

@@ -4,6 +4,8 @@ import arrow.core.None
 import arrow.core.Some
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.datatest.withData
+import io.kotest.data.row
 
 class LedgerTest : FunSpec({
 
@@ -76,6 +78,27 @@ class LedgerTest : FunSpec({
     test("can not create a debit with negative amount") {
 
         val actual = Movement.debit(-27)
+
+        actual shouldBe None
+    }
+
+    test(" can't create credit with zero amount") {
+
+        val actual = Movement.credit(0)
+
+        actual shouldBe None
+    }
+
+    test("actual credit with positive amount") {
+
+        val actual = Movement.credit(45)
+
+        actual shouldBe Some(Movement.Credit(45))
+    }
+
+    test("can not create a credit with negative amount") {
+
+        val actual = Movement.credit(-27)
 
         actual shouldBe None
     }
