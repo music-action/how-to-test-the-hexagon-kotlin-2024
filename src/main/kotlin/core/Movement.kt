@@ -2,6 +2,7 @@ package core
 
 import arrow.core.None
 import arrow.core.Option
+import arrow.core.Some
 
 sealed class Movement(amount: Int) {
     abstract fun value(): Int
@@ -21,7 +22,10 @@ sealed class Movement(amount: Int) {
 
     companion object {
         fun debit(value: Int): Option<Debit> {
-            return None
+            if (value == 0) {
+                return None
+            }
+            return Some(Debit(value))
         }
     }
 
