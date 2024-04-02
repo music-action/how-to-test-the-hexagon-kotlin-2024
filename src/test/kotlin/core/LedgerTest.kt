@@ -20,14 +20,8 @@ class LedgerTest : FunSpec({
 
     test("transaction with two balanced entries") {
         val sut = Ledger()
-        val entries =
-            listOf(
-                Entry(accountNumber = "1234567890", movement = Movement.Credit(100)),
-                Entry(accountNumber = "1234567890", movement = Movement.Debit(100))
-            )
-
         val actual =
-            sut.RegisterTransaction(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
+            sut.RegisterTransaction( aValidTransaction())
 
         actual shouldBe RegisterResult.TransactionAccepted
     }
