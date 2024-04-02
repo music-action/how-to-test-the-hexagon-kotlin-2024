@@ -34,7 +34,8 @@ class LedgerTest : FunSpec({
             )
 
         val actual =
-            sut.RegisterTransaction(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
+            sut.RegisterTransaction(
+                Transaction(reference = 1, entries = entries, date = "2020-01-01"))
 
         actual shouldBe RegisterResult.TransactionRejected
     }

@@ -17,5 +17,16 @@ class AccountingCommandsTest  : FunSpec({
       sut.HandleCommand(command = command) shouldBe Either.Right( RegisterResult.TransactionAccepted)
     }
 
+    test("command invalid transaction") {
+        val entries =
+            listOf(
+                Entry(accountNumber = "1234567890", movement = Movement.Credit(99))
+            )
+        val anInvalidTransaction =  Transaction(reference = 1, entries = entries, date = "2020-01-01")
+        val command = RegisterTransaction(anInvalidTransaction     )
+        val sut = Accounting()
+
+        sut.HandleCommand(command = command) shouldBe Either.Left("Error")
+    }
 })
 

@@ -1,5 +1,5 @@
 package core
 
-class RegisterTransaction(transaction: Transaction) {
+class RegisterTransaction(val transaction: Transaction) {
 
 }
