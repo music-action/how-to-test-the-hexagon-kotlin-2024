@@ -1,7 +1,7 @@
 package useCases
 
-import store.TransactionEventsStore
+import repositories.ITransactionEventsRepository
 
-class UseCaseReadBalance(store: TransactionEventsStore)  {
+class UseCaseReadBalance(store: ITransactionEventsRepository)  {
 
 }

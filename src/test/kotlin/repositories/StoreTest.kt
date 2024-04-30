@@ -1,4 +1,4 @@
-package store
+package repositories
 
 import core.RegisterResult
 import core.aValidTransaction
@@ -10,7 +10,7 @@ class StoreTest : FunSpec({
     /* Json Invalid => Nothing */
 
     test("store and load a transactions ") {
-        val sut = InMemoryTransactionEventsStore( )
+        val sut = TransactionEventsRepository( )
         val event = RegisterResult.TransactionAccepted
         //  act
         sut.store(event)

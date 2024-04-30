@@ -1,9 +1,9 @@
-package store
+package repositories
 
 import core.RegisterResult
 import core.Transaction
 
-class InMemoryTransactionEventsStore : TransactionEventsStore {
+class TransactionEventsRepository : ITransactionEventsRepository {
     override fun store(event: RegisterResult) {
         TODO("Not yet implemented")
     }
@@ -14,8 +14,3 @@ class InMemoryTransactionEventsStore : TransactionEventsStore {
 
 }
 
-interface TransactionEventsStore {
-    fun store(event: RegisterResult)
-    fun loadAllTransactions(): Collection<Transaction>
-
-}
