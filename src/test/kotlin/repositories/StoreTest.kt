@@ -6,8 +6,6 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.collections.shouldContain
 
 class StoreTest : FunSpec({
-    /* TODO: property test, round trip Command Valid => Json Valid  */
-    /* Json Invalid => Nothing */
 
     test("store and load a transactions ") {
         val sut = TransactionEventsRepository( )
@@ -20,6 +18,5 @@ class StoreTest : FunSpec({
         val listOfTransaction = sut.loadAllTransactions()
         //  assert
         listOfTransaction shouldContain ( transaction)
-
     }
 })

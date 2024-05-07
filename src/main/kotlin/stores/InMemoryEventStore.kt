@@ -1,4 +1,0 @@
-package stores
-
-class InMemoryEventStore {
-}

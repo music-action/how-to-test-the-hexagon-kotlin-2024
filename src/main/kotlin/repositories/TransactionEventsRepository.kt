@@ -15,5 +15,7 @@ class TransactionEventsRepository : ITransactionEventsRepository {
        return  listOfTransactions.filterIsInstance<RegisterResult.TransactionAccepted>().map { it.transaction }
     }
 
+
+
 }
 
