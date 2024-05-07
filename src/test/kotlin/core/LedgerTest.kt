@@ -4,6 +4,7 @@ import arrow.core.None
 import arrow.core.Some
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 
 class LedgerTest : FunSpec({
 
@@ -19,11 +20,12 @@ class LedgerTest : FunSpec({
     }
 
     test("transaction with two balanced entries") {
+        val transaction = aValidTransaction()
         val sut = Ledger()
         val actual =
-            sut.RegisterTransaction( aValidTransaction())
+            sut.RegisterTransaction( transaction)
 
-        actual shouldBe RegisterResult.TransactionAccepted
+        actual shouldBe  RegisterResult.TransactionAccepted(transaction)
     }
 
     test("transaction with one unbalanced entries") {

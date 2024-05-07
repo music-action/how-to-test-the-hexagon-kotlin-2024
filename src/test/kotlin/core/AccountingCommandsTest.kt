@@ -10,11 +10,11 @@ class AccountingCommandsTest  : FunSpec({
     /* Json Invalid => Nothing */
 
     test("command valid transaction") {
-
-        val command = RegisterTransaction(aValidTransaction())
+        var transaction = aValidTransaction()
+        val command = RegisterTransaction(transaction)
         val sut = Accounting()
 
-      sut.HandleCommand(command = command) shouldBe Either.Right( RegisterResult.TransactionAccepted)
+      sut.HandleCommand(command = command) shouldBe Either.Right( RegisterResult.TransactionAccepted(transaction))
     }
 
     test("command invalid transaction") {

@@ -7,7 +7,7 @@ class Ledger {
             return RegisterResult.TransactionRejected
         val balance = transaction.balance()
 
-        if (balance == 0) return RegisterResult.TransactionAccepted
+        if (balance == 0) return RegisterResult.TransactionAccepted(transaction)
         return RegisterResult.TransactionRejected
     }
 

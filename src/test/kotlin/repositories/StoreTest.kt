@@ -11,13 +11,15 @@ class StoreTest : FunSpec({
 
     test("store and load a transactions ") {
         val sut = TransactionEventsRepository( )
-        val event = RegisterResult.TransactionAccepted
+        val transaction = aValidTransaction()
+        val event = RegisterResult.TransactionAccepted(transaction)
+
         //  act
         sut.store(event)
         // act consequently
         val listOfTransaction = sut.loadAllTransactions()
         //  assert
-        listOfTransaction shouldContain ( aValidTransaction())
+        listOfTransaction shouldContain ( transaction)
 
     }
 })
