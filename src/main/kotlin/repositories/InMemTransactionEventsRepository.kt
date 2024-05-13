@@ -3,7 +3,7 @@ package repositories
 import core.RegisterResult
 import core.Transaction
 
-class TransactionEventsRepository : ITransactionEventsRepository {
+class InMemTransactionEventsRepository : ITransactionEventsRepository {
 
     val listOfTransactions = mutableListOf<RegisterResult>()
 
@@ -14,8 +14,5 @@ class TransactionEventsRepository : ITransactionEventsRepository {
     override fun loadAllTransactions(): Collection<Transaction> {
        return  listOfTransactions.filterIsInstance<RegisterResult.TransactionAccepted>().map { it.transaction }
     }
-
-
-
 }
 

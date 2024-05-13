@@ -1,19 +1,17 @@
 package useCases
 
 import core.Movement
-import core.RegisterResult
 import core.Transaction
 import core.aValidTransaction
 import io.kotest.core.spec.style.FunSpec
-import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.shouldBe
-import repositories.TransactionEventsRepository
+import repositories.InMemTransactionEventsRepository
 
 class useCasesTests : FunSpec( {
 
     test("trial balance") {
          // arrange
-        val store = TransactionEventsRepository( )
+        val store = InMemTransactionEventsRepository( )
 
         val sut = UseCaseReadBalance(store)
 
