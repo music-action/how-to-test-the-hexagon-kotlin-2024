@@ -2,7 +2,7 @@ package useCases
 
 import core.Balance
 import core.Transaction
-import repositories.ITransactionEventsRepository
+import drivers.repositories.ITransactionEventsRepository
 
 class UseCaseReadBalance(store: ITransactionEventsRepository)  {
     fun submit(aValidTransaction: Transaction) {

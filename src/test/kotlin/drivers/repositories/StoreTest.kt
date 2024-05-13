@@ -1,7 +1,8 @@
-package repositories
+package drivers.repositories
 
 import core.RegisterResult
 import core.aValidTransaction
+import drivers.repositories.InMemTransactionEventsRepository
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldHaveSize

@@ -5,7 +5,7 @@ import core.Transaction
 import core.aValidTransaction
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import repositories.InMemTransactionEventsRepository
+import drivers.repositories.InMemTransactionEventsRepository
 
 class useCasesTests : FunSpec( {
 
