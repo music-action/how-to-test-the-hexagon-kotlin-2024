@@ -5,5 +5,5 @@ a seed to start a TDD project in Kotlin with latest version of language + Kotest
 
 in the branches, you can see many exercisms that we started to code based on that seed.
 
-First we started with the Accounting Balance kata, from and with Arnaud Bailly
+First we started with the 'double-entry accounting' kata, from and with Arnaud Bailly
 
