@@ -16,7 +16,7 @@ sealed class Movement() {
         }
 
         override fun plus(movement: Movement): Movement {
-            return Movement.Credit(movement.value() + amount)
+            return Credit(movement.value() + amount)
         }
 
     }
@@ -27,7 +27,7 @@ sealed class Movement() {
         }
 
         override fun plus(movement: Movement): Movement {
-            return Movement.Debit(-movement.value() + amount)
+            return Debit(-movement.value() + amount)
         }
     }
 

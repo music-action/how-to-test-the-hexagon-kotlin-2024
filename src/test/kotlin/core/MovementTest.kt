@@ -1,6 +1,5 @@
 package core
 
-import core.Movement.Companion.credit
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
@@ -12,6 +11,10 @@ class MovementTest : FunSpec( {
 
     test("movement debit plus debit") {
         Movement.Debit(10) + Movement.Debit(10) shouldBe Movement.Debit(20)
+    }
+
+    test("movement debit plus credit") {
+        Movement.Debit(10) + Movement.Credit(15) shouldBe Movement.Credit(5)
     }
 
 })
