@@ -1,16 +1,20 @@
 package useCases
 
 import core.Balance
+import core.Ledger
 import core.Transaction
 import drivers.repositories.ITransactionEventsRepository
 
-class UseCaseReadBalance(store: ITransactionEventsRepository)  {
-    fun submit(aValidTransaction: Transaction) {
-        TODO("Not yet implemented")
+class UseCaseReadBalance(val store: ITransactionEventsRepository)  {
+    val ledger = Ledger()
+
+    fun submit(aTransaction: Transaction) {
+        val result = ledger.RegisterTransaction(aTransaction)
+        store.store(result)
     }
 
     fun readBalance(): Balance {
-        TODO("Not yet implemented")
+        return Balance()
     }
 
 

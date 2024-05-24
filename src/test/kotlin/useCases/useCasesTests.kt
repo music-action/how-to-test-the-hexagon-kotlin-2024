@@ -1,8 +1,8 @@
 package useCases
 
 import core.Movement
-import core.Transaction
 import core.aValidTransaction
+import core.anotherValidTransaction
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import drivers.repositories.InMemTransactionEventsRepository
@@ -25,6 +25,3 @@ class useCasesTests : FunSpec( {
     }
 })
 
-fun anotherValidTransaction(): Transaction {
-    TODO("Not yet implemented")
-}
