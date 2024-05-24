@@ -1,5 +1,5 @@
 package core
 
-class Entry(accountNumber: String, val movement: Movement) {
+class Entry(val accountNumber: String, val movement: Movement) {
 
 }

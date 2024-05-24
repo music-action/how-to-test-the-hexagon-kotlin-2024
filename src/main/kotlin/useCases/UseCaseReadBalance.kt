@@ -14,7 +14,10 @@ class UseCaseReadBalance(val store: ITransactionEventsRepository)  {
     }
 
     fun readBalance(): Balance {
-        return Balance()
+        val allTransactions = store.loadAllTransactions()
+        val balance = Balance()
+        allTransactions.fold(balance) { balance , transaction -> balance.adjust(transaction)  }
+        return balance
     }
 
 
