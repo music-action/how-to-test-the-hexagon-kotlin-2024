@@ -15,7 +15,10 @@ sealed class Movement() {
         }
 
         override fun plus(movement: Movement): Movement {
-            return Credit(movement.value() + amount)
+            when (movement) {
+                is Debit -> return movement + this
+                is Credit -> return Credit(movement.value() + amount)
+            }
         }
 
     }
@@ -28,7 +31,10 @@ sealed class Movement() {
         override fun plus(movement: Movement): Movement {
             when (movement) {
                 is Debit -> return Debit(-movement.value() + amount)
-                is Credit -> return Credit(movement.value() - amount)
+                is Credit -> {
+                    if (movement.value() > amount) return Credit(movement.value() - amount)
+                    return Debit(amount - movement.value())
+                }
             }
 
         }
