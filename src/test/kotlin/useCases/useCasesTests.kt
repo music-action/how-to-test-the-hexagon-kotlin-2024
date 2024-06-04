@@ -9,7 +9,7 @@ import io.kotest.matchers.shouldBe
 
 class useCasesTests : FunSpec( {
 
-    test("trial balance").config(enabled = false) {
+    test("trial balance") {
          // arrange
         val store = InMemTransactionEventsRepository( )
 
