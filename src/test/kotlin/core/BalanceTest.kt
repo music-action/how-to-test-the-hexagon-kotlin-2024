@@ -6,7 +6,7 @@ import io.kotest.matchers.shouldBe
 
 class BalanceTest : FunSpec( {
 
-    test("balance").config(enabled = false) {
+    test("balance") {
          // arrange
 
         val sut = Balance()
@@ -17,7 +17,7 @@ class BalanceTest : FunSpec( {
         sut.account("1234567891") shouldBe Movement.Debit(100)
     }
 
-    test("adjust balance with another transaction").config(enabled = false) {
+    test("adjust balance with another transaction") {
         // arrange
 
         val sut = Balance()
