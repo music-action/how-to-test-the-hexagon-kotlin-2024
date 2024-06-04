@@ -9,7 +9,6 @@ sealed class Movement() {
     abstract operator fun plus(movement: Movement): Movement
 
 
-
     data class Credit(val amount: Int) : Movement() {
         override fun value(): Int {
             return amount
@@ -27,7 +26,11 @@ sealed class Movement() {
         }
 
         override fun plus(movement: Movement): Movement {
-            return Debit(-movement.value() + amount)
+            when (movement) {
+                is Debit -> return Debit(-movement.value() + amount)
+                is Credit -> return Credit(movement.value() - amount)
+            }
+
         }
     }
 
