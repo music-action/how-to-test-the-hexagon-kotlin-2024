@@ -56,6 +56,14 @@ dependencies {
     implementation 'com.github.jasync-sql:jasync-postgresql:2.2.0'
     // Koin for Kotlin apps
     implementation "io.insert-koin:koin-core:$koin_version"
+    //web server
+    implementation(platform("org.http4k:http4k-bom:5.23.0.0"))
+    implementation("org.http4k:http4k-core")
+    implementation("org.http4k:http4k-server-jetty")
+    implementation("org.http4k:http4k-server-undertow")
+    implementation("org.http4k:http4k-client-apache")
+    implementation("org.http4k:http4k-client-okhttp")
+
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0-M1'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
