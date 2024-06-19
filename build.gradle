@@ -64,6 +64,12 @@ dependencies {
     testImplementation "io.kotest:kotest-runner-junit5:$kotestVersion"
     testImplementation "io.kotest:kotest-assertions-core:$kotestVersion"
     testImplementation "io.kotest:kotest-framework-datatest:$kotestVersion"
+
+    // retrofit
+    testImplementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    // lib for parsing JSON api responses
+    testImplementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
 }
 
 wrapper {
