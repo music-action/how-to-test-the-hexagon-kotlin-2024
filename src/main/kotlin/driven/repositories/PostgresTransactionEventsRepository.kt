@@ -1,4 +1,4 @@
-package drivers.repositories
+package driven.repositories
 
 import com.github.jasync.sql.db.QueryResult
 import com.github.jasync.sql.db.postgresql.PostgreSQLConnectionBuilder

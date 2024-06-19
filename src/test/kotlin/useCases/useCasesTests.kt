@@ -3,7 +3,7 @@ package useCases
 import core.Movement
 import core.aValidTransaction
 import core.anotherValidTransaction
-import drivers.repositories.InMemTransactionEventsRepository
+import driven.repositories.InMemTransactionEventsRepository
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 

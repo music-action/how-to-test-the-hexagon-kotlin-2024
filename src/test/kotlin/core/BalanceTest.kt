@@ -1,6 +1,6 @@
 package core
 
-import drivers.repositories.InMemTransactionEventsRepository
+import driven.repositories.InMemTransactionEventsRepository
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 

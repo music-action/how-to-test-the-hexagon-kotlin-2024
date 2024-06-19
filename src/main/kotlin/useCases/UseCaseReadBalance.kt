@@ -3,7 +3,7 @@ package useCases
 import core.Balance
 import core.Ledger
 import core.Transaction
-import drivers.repositories.ITransactionEventsRepository
+import driven.repositories.ITransactionEventsRepository
 
 class UseCaseReadBalance(val store: ITransactionEventsRepository)  {
     val ledger = Ledger()
