@@ -1,30 +1,28 @@
 package drivers.api
 
-import core.Movement
+import org.http4k.client.OkHttp
+import org.http4k.core.Method.GET
+import org.http4k.core.Request
+import org.http4k.core.Status.Companion.OK
+//import org.http4k.hamkrest.hasStatus
+import driver.AccountingHttpServer
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import okhttp3.mockwebserver.MockWebServer
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
-class RestApiTest : FunSpec( {
+class RestApiTest : FunSpec({
 
-    context("this outer block is enabled") {
+    context("using a http4k server") {
 
-        val server = MockWebServer()
+         val client = OkHttp()
+         val server = AccountingHttpServer(0)
 
-        val api = Retrofit.Builder()
-            .baseUrl(server.url("/balance"))//Pass any base url like this
-            .addConverterFactory(GsonConverterFactory.create())
-            .build().create(AccountingApi::class.java)
+        server.start()
 
-        test("our first API call") {
-           val response =  api.getBalance()
-              server.takeRequest()//let the server take the request
-
-            // assertEquals(data, dto)
+        test("first request") {
+            val response = client(Request(GET, "http://localhost:${server.port()}/ping"))
+            response.status shouldBe OK
         }
 
-        server.shutdown()
+        server.stop()
     }
 })
