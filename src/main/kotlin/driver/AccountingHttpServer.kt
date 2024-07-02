@@ -12,6 +12,9 @@ import org.http4k.server.Jetty
 import org.http4k.server.asServer
 import useCases.UseCaseReadBalance
 
+
+data class DTOBalance(val value: Int)
+
 fun accountingHttpServer(port: Int, useCaseReadBalance: UseCaseReadBalance): Http4kServer =
     accountingHttpHandler(useCaseReadBalance).asServer(Jetty(port))
 
@@ -20,7 +23,8 @@ fun accountingHttpHandler(useCaseReadBalance: UseCaseReadBalance): HttpHandler =
         "/balance/{accountId}" bind Method.GET to { request: Request ->
             val accountId = request.path("accountId")!!
             val balance = useCaseReadBalance.readBalance()
-            Response(OK).body(balance.account(accountId).toString())
+            val dtoBalance = DTOBalance(balance.account(accountId).value())
+            Response(OK).body("here we shoul")
         }
 
     )
