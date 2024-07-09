@@ -29,7 +29,7 @@ class RestApiTest : FunSpec({
 
         test("request with initial balance for account 1234567890 should be zero") {
             val response = client(Request(GET, "http://localhost:${server.port()}/balance/1234567890"))
-            assertThat(response, hasStatus(OK).and(hasBody("0")))
+            assertThat(response, hasStatus(OK).and(hasBody("{\"value\":0,\"accountId\":\"accountId\"}")))
         }
 
         test("request with a transaction") {
