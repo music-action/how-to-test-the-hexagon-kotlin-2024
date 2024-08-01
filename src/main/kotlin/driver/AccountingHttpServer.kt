@@ -31,7 +31,7 @@ fun accountingHttpHandler(useCaseReadBalance: UseCaseReadBalance): HttpHandler =
             val accountId = request.path("accountId")!!
             val balance = useCaseReadBalance.readBalance()
 
-            val viewDtoBalance = ViewDTOBalance(value = balance.account(accountId).value(), accountId = "accountId")
+            val viewDtoBalance = ViewDTOBalance(value = balance.account(accountId).value(), accountId = accountId)
             val bodyJson = Body.auto<ViewDTOBalance>().toLens()
             viewDtoBalance.let { Response(OK).with(bodyJson of it) }
         }

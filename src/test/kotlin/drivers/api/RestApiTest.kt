@@ -29,14 +29,14 @@ class RestApiTest : FunSpec({
 
         test("request with initial balance for account 1234567890 should be zero") {
             val response = client(Request(GET, "http://localhost:${server.port()}/balance/1234567890"))
-            assertThat(response, hasStatus(OK).and(hasBody("{\"value\":0,\"accountId\":\"accountId\"}")))
+            assertThat(response, hasStatus(OK).and(hasBody("{\"value\":0,\"accountId\":\"1234567890\"}")))
         }
 
         test("request with a transaction") {
             useCaseReadBalance.submit(aValidTransaction())
 
             val response = client(Request(GET, "http://localhost:${server.port()}/balance/1234567890"))
-            assertThat(response, hasStatus(OK).and(hasBody("100")))
+            assertThat(response, hasStatus(OK).and(hasBody("{\"value\":100,\"accountId\":\"1234567890\"}")))
         }
 
         //TODO: third test retreive the right balance for a given transaction
