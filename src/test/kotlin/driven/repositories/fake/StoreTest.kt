@@ -1,12 +1,14 @@
-package driven.repositories
+package driven.repositories.fake
 
 import core.RegisterResult
 import core.aValidTransaction
 import driven.repositories.InMemTransactionEventsRepository
+import io.kotest.core.annotation.AutoScan
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldHaveSize
 
+@AutoScan
 class StoreTest : FunSpec({
 
     test("load no transaction") {
