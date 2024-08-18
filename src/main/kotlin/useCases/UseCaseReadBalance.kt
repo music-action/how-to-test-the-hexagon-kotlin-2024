@@ -9,15 +9,11 @@ class UseCaseReadBalance(val store: ITransactionEventsRepository)  {
     val ledger = Ledger()
 
     fun submit(aTransaction: Transaction) {
-        val result = ledger.RegisterTransaction(aTransaction)
-        store.store(result)
+      TODO()
     }
 
     fun readBalance(): Balance {
-        val allTransactions = store.loadAllTransactions()
-        val balance = Balance()
-        allTransactions.fold(balance) { balance , transaction -> balance.adjust(transaction)  }
-        return balance
+       TODO()
     }
 
 

@@ -1,8 +1,9 @@
 package core
 
+import io.kotest.core.annotation.AutoScan
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-
+@AutoScan()
 class MovementTest : FunSpec( {
 
     test("movement credit plus credit") {

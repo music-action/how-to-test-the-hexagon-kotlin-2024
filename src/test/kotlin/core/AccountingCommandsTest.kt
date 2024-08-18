@@ -1,10 +1,11 @@
 package core
 
 import arrow.core.Either
+import io.kotest.core.annotation.AutoScan
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
-
+@AutoScan()
 class AccountingCommandsTest  : FunSpec({
     /* TODO: property test, round trip Command Valid => Json Valid  */
     /* Json Invalid => Nothing */

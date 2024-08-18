@@ -1,9 +1,10 @@
 package core
 
 import driven.repositories.InMemTransactionEventsRepository
+import io.kotest.core.annotation.AutoScan
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-
+@AutoScan()
 class BalanceTest : FunSpec( {
 
     test("balance") {

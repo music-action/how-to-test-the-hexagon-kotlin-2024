@@ -1,6 +1,4 @@
-package drivers
-
-
+import io.kotest.core.annotation.AutoScan
 import io.kotest.core.spec.style.BehaviorSpec
 
 class SampleBehaviorSpec : BehaviorSpec({

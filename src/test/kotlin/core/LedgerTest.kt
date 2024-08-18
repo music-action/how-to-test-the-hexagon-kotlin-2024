@@ -2,10 +2,12 @@ package core
 
 import arrow.core.None
 import arrow.core.Some
+import io.kotest.core.annotation.AutoScan
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeSameInstanceAs
 
+@AutoScan()
 class LedgerTest : FunSpec({
 
     test("transaction without entries") {
