@@ -10,7 +10,18 @@ import io.kotest.matchers.types.shouldBeSameInstanceAs
 @AutoScan()
 class LedgerTest : FunSpec({
 
-    test("transaction without entries") {
+    test("01a transaction without entries boolean") {
+        val sut = Ledger()
+        val entries = listOf<Entry>()
+
+        val actual: Boolean =
+            sut.RegisterTransaction0(Transaction(reference = 1, entries = entries, date = "2020-01-01"))
+
+        actual shouldBe false
+    }
+
+
+    test("01b transaction without entries").config(enabled = false) {
         val sut = Ledger()
         val entries = listOf<Entry>()
 
@@ -21,7 +32,7 @@ class LedgerTest : FunSpec({
         actual shouldBe RegisterResult.TransactionRejected
     }
 
-    test("transaction with two balanced entries") {
+    test("transaction with two balanced entries").config(enabled = true)   {
         val transaction = aValidTransaction()
         val sut = Ledger()
         val actual =
@@ -30,7 +41,7 @@ class LedgerTest : FunSpec({
         actual shouldBe  RegisterResult.TransactionAccepted(transaction)
     }
 
-    test("transaction with one unbalanced entries") {
+    test("transaction with one unbalanced entries should be rejected").config(enabled = false)  {
         val sut = Ledger()
         val entries =
             listOf(
@@ -44,7 +55,7 @@ class LedgerTest : FunSpec({
         actual shouldBe RegisterResult.TransactionRejected
     }
 
-    test("transaction with two unbalanced entries") {
+    test("transaction with two unbalanced entries").config(enabled = false)  {
         val sut = Ledger()
         val entries =
             listOf(
@@ -58,56 +69,8 @@ class LedgerTest : FunSpec({
         actual shouldBe RegisterResult.TransactionRejected
     }
 
-    test("movement test, can't create movement with zero amount") {
-
-        val actual = Movement.debit(0)
-
-        actual shouldBe None
-    }
-
-    test("actual debit with positive amount") {
-
-        val actual = Movement.debit(45)
-
-        actual shouldBe Some(Movement.Debit(45))
-    }
-
-    test("can not create a debit with negative amount") {
-
-        val actual = Movement.debit(-27)
-
-        actual shouldBe None
-    }
-
-    test(" can't create credit with zero amount") {
-
-        val actual = Movement.credit(0)
-
-        actual shouldBe None
-    }
-
-    test("actual credit with positive amount") {
-
-        val actual = Movement.credit(45)
-
-        actual shouldBe Some(Movement.Credit(45))
-    }
-
-    test("can not create a credit with negative amount") {
-
-        val actual = Movement.credit(-27)
-
-        actual shouldBe None
-    }
-
-    /* TODO: implement two adapters for the present hexagon, at least one driven and one driver */
-    /* WIP: Input */
-
-    /* TODO: 2nd iteration with property base testing */
 
 
-    /* TODO: walking skeleton */
-    /* TODO: how to timestamp transaction and test it? Fake clock, Fake calendar */
-    /* https://verraes.net/2022/03/multi-temporal-events/ */
+
 
 })

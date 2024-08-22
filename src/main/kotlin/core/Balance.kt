@@ -3,8 +3,8 @@ package core
 class Balance {
     val bal: HashMap<String, Movement> = HashMap()
 
-    fun account(s: String): Movement {
-        return bal.getOrDefault(s, Movement.Credit(0))
+    fun account(accountNumber: String): Movement {
+        return bal.getOrDefault(accountNumber, Movement.Credit(0))
     }
 
     fun adjust(transaction: Transaction): Balance {

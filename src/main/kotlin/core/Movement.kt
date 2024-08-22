@@ -6,8 +6,8 @@ import arrow.core.Some
 
 sealed class Movement() {
     abstract fun value(): Int
-    abstract operator fun plus(movement: Movement): Movement
 
+    abstract operator fun plus(movement: Movement): Movement
 
     data class Credit(val amount: Int) : Movement() {
         override fun value(): Int {
